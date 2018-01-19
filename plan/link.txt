@@ -1,0 +1,43 @@
+http://rachelee.org/72
+
+=========================================================
+Consumer Key (API Key)
+Ed04jQhvKpWJoufL7H1xUn4cS
+ 
+Consumer Secret (API Secret)
+K1Iv1Q8kHuSvkP4dnMJOl79dOKKSAkGhgnp0rP0d1karmyTI00
+
+==========================================================
+Access Token
+949874709310595073-RhzKylfAt6r5TVWz1VJYSD23BobUv89
+ 
+Access Token Secret
+VO0CBVLpQLUMfzbDkW6zQtsuSQEsFYbY6quCQmPjBUlKs
+
+
+==========================================================
+
+import tweepy
+
+consumer_key='Ed04jQhvKpWJoufL7H1xUn4cS'
+consumer_secret='K1Iv1Q8kHuSvkP4dnMJOl79dOKKSAkGhgnp0rP0d1karmyTI00'
+access_token='949874709310595073-RhzKylfAt6r5TVWz1VJYSD23BobUv89'
+access_token_secret='VO0CBVLpQLUMfzbDkW6zQtsuSQEsFYbY6quCQmPjBUlKs'
+
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+
+api = tweepy.API(auth)
+
+keyword='홍대'
+result=[]
+
+for i in range(1, 3):
+    tweets = api.search(keyword)
+    for tweet in tweets:
+        result.append([tweet.id_str, tweet.text, tweet.created_at])
+        
+print(len(result))
+print(result)
+
+============================= 검색문 조건 ===============================================
+https://developer.twitter.com/en/docs/tweets/search/guides/standard-operators
